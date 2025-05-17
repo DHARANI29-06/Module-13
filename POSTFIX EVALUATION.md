@@ -32,44 +32,45 @@ To write a Python program to evaluate a user-given Postfix expression that conta
 ### PROGRAM
 
 ```
-OPERATORS=set(['*','-','+','%','/','**'])
-def postfix_Eval(exp):
-    stack=[]
-    for i in exp:
+OPERATORS=set(['','-','+','%','/','*']) 
+def evaluate_postfix(expression):
+    stack=[] 
+    for char in expression:
         smallexp=''
-        if i not in OPERATORS:
-            stack.append(i)
+        if char not in OPERATORS:
+            stack.append(char)
         else:
             a=stack.pop()
             b=stack.pop()
-            if i=='+':
+            if char=='+':
                 res=int(b)+int(a)
-                stack.append(res) 
-            if i=='-':
+                stack.append(res)
+            if char=='-':
                 res=int(b)-int(a)
-                stack.append(res) 
-            if i=='*':
+                stack.append(res)
+            if char=='*':
                 res=int(b)*int(a)
-                stack.append(res) 
-            if i=='/':
+                stack.append(res)
+            if char=='/':
                 res=int(b)/int(a)
-                stack.append(res) 
-            if i=='%':
+                stack.append(res)
+            if char=='%':
                 res=int(b)%int(a)
-                stack.append(res) 
-            if i=='**':
+                stack.append(res)
+            if char=='':
                 res=int(b)**int(a)
                 stack.append(res)
+            
     return stack[0]
-exp=input()
 
-print("postfix expression: ",exp)
-print("Evaluation result: ",postfix_Eval(exp))
-
+expression = input()
+print("postfix expression: ",expression)
+print("Evaluation result: ",evaluate_postfix(expression))
 ```
 
 ### OUTPUT
-![image](https://github.com/user-attachments/assets/0508e45f-3c8e-4549-8ab5-1a3ee79e8a4b)
+![image](https://github.com/user-attachments/assets/01ac2ead-10ba-4169-8ac8-41c634d4ce40)
+
 
 ### RESULT
 Thus , a Python program to evaluate a user-given Postfix expression that contains Multiplication and Addition operators using the stack concept are verified.
