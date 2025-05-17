@@ -28,13 +28,46 @@ To write a Python program to evaluate a user-given Prefix expression using a sta
 ### PROGRAM
 
 ```
+OPERATORS=set(['*','-','+','%','/','**'])
+def postfix_Eval(exp):
+    stack=[]
+    for i in exp:
+        smallexp=''
+        if i not in OPERATORS:
+            stack.append(i)
+        else:
+            a=stack.pop()
+            b=stack.pop()
+            if i=='+':
+                res=int(b)+int(a)
+                stack.append(res) 
+            if i=='-':
+                res=int(b)-int(a)
+                stack.append(res) 
+            if i=='*':
+                res=int(b)*int(a)
+                stack.append(res) 
+            if i=='/':
+                res=int(b)/int(a)
+                stack.append(res) 
+            if i=='%':
+                res=int(b)%int(a)
+                stack.append(res) 
+            if i=='**':
+                res=int(b)**int(a)
+                stack.append(res)
+    return stack[0]
+exp=input()
+
+print("postfix expression: ",exp)
+print("Evaluation result: ",postfix_Eval(exp))
 
 
 ```
 
 
 ### OUTPUT
-
-
+![image](https://github.com/user-attachments/assets/18859cb3-d7ed-4b80-b07b-831b5321dc88)
 
 ### RESULT
+Thus ,a Python program to evaluate a user-given Prefix expression using a stack. The expression must contain operators such as Multiplication, Addition, and Subtraction are verified.
